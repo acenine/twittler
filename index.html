@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Twittler</title>
+    <link rel="stylesheet" href="style.css"/>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="main.js"></script>
   </head>
   <body>
-    <script>
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
-
-      });
-
-    </script>
+    <div class='feed'>
+      <ul class='tweets outgoing'>
+        <h3>MY tweets</h3>
+      </ul>
+      <ul class='tweets incoming'>
+        <h3>Other people's tweets:</h3>
+      </ul>
+    </div>
   </body>
 </html>

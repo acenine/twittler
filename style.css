@@ -1,0 +1,17 @@
+.tweet {
+	border: 2px;
+	border-style: solid;
+	border-color: blue;
+	border-radius: 5px;
+	background-color: #ccc;
+	margin: 5px;
+	color: #0000aa;
+	list-style-type: none;
+}
+.tweets {
+	border: 5px;
+	border-style: solid;
+	border-color: green;
+	margin: 10px;
+
+}
