@@ -1,11 +1,11 @@
-.tweet {
+.tweetBox {
 	border: 2px;
 	border-style: solid;
 	border-color: blue;
 	border-radius: 5px;
 	background-color: #ccc;
 	margin: 5px;
-	color: #0000aa;
+	color: #00a;
 	list-style-type: none;
 }
 .tweets {
@@ -14,4 +14,11 @@
 	border-color: green;
 	margin: 10px;
 
+}
+.tweetInput {
+	display:none;
+}
+.timestamp{
+	font-size: 9pt;
+	font-style: italic;
 }
