@@ -18,7 +18,15 @@
 .tweetInput {
 	display:none;
 }
-.timestamp{
+.timestamp {
 	font-size: 9pt;
 	font-style: italic;
+}
+.feed {
+	float: left;
+	width: 55%;
+}
+aside {
+	float: right;
+	width: 40%;
 }

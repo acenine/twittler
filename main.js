@@ -6,10 +6,24 @@ $(document).ready(function(){
     while(index < streams.home.length){
           
         var tweet = streams.home[index];
-        addToFeed(tweet)
+        addToFeed(tweet);
         index += 1;
     }
 
+    var streamSpeed = setInterval(streamFeed, 1500);
+
+    function streamFeed() {
+        var numPosted = $('.feed>.tweetBox').length;
+        if (numPosted < streams.home.length) {
+            var i = numPosted;
+            while (i < streams.home.length) {
+                var tweet = streams.home[i];
+                addToFeed(tweet);
+                i += 1;
+            }
+        }
+    }
+    
 
     function addToFeed(tweet) {
         var $tweetBox = $('<li class="tweetBox"></li>');
