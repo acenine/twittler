@@ -8,28 +8,31 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <section id='userInput'>
-      <form id='login' action=''>Enter username: 
-        <input type="text" id="username">
-      </form>
-      <form class="tweetInput">
-        <textarea class="myTweet" rows="10" cols="50"></textarea>
-        <input type="submit" value="Send Tweet">
-      </form>
-    </section>
+    <header id='userInput'>
+      <div class='tweetInput input'>
+        <form id="tweetInput">
+          <textarea class="myTweet" rows="10" cols="50"></textarea>
+          <input type="submit" value="Send Tweet">
+        </form>
+      </div>
+      <div class='login input'>
+        <form id='login' action=''>Enter username: 
+          <input type="text" id="username">
+        </form>
+      </div>
+    </header>
 
     <section class='feed'>
-
-      <!--ul class='tweets outgoing'>
-        <h3>MY tweets</h3>
-      </ul-->
-
+      <h3>Twits happen:</h3>
       <ul class='tweets incoming'>
-        <h3>Other people's tweets:</h3>
+        
       </ul>
     </section>
 
-    <aside class='timeline'></aside>
+    <aside class='timeline'>
+      <h3></h3>
+      <ul></ul>
+    </aside>
 
   </body>
 </html>

@@ -6,11 +6,12 @@ $(document).ready(function(){
     while(index < streams.home.length){
           
         var tweet = streams.home[index];
-        addToFeed(tweet);
+        addTweet(tweet, 'feed');
         index += 1;
     }
 
-    var streamSpeed = setInterval(streamFeed, 1500);
+/*
+    var streamSpeed = setInterval(streamFeed, 10000);
 
     function streamFeed() {
         var numPosted = $('.feed>.tweetBox').length;
@@ -18,14 +19,14 @@ $(document).ready(function(){
             var i = numPosted;
             while (i < streams.home.length) {
                 var tweet = streams.home[i];
-                addToFeed(tweet);
+                addTweet(tweet, "feed");
                 i += 1;
             }
         }
     }
-    
+*/
 
-    function addToFeed(tweet) {
+    function makeTweetBox(tweet) {
         var $tweetBox = $('<li class="tweetBox"></li>');
         var $tweetBody = $('<p></p>');
         var $username = $('<a href="#" class="username"></a>');
@@ -35,11 +36,56 @@ $(document).ready(function(){
         $tweetBody.text('@').append($username).append( ': ' + tweet.message);
         $tweetBox.append($tweetBody);
         $tweetBox.append($timestamp);
+        return $tweetBox;
     // might need to chage incoming later for adding user tweets
-        $('.feed>.incoming').find("h3").after($tweetBox);
+        //$('.feed>.incoming').find("h3").after($tweetBox);
 
     
     }
+
+    function addTweet(tweet, whereTo) {
+
+        $('.' + whereTo + '>ul').prepend(makeTweetBox(tweet));
+    }
+/*
+    function addToTimeline(tweet) {
+        var $tweetBox = makeTweetBox(tweet);
+        $('.timeline>ul').prepend(makeTweetBox(tweet));
+
+    }
+*/
+
+// username is clicked
+// display the timeline aside
+// username tweets are shown earliest at top
+
+$(".username").on("click", function(){
+    $('.timeline>ul').children().remove();
+    $('.timeline').toggle();
+    $('.timeline>ul').children().remove();
+    var user = $(this).text();
+    $('.timeline>h3').text('').append(user).append("'s timeline:");
+    var userTweets = streams.users[user];
+    for (var i = 0; i < userTweets.length; i++) {
+        addTweet(userTweets[i], "timeline");
+    }
+/*
+    var stream = setInterval(streamTimeline, 5000);
+
+    function streamTimeline() {
+        var numPosted = $('.timeline>.tweetBox').length;
+        if (numPosted < userTweets.length) {
+            var i = numPosted;
+            while (i < userTweets.length) {
+                var tweet = userTweets[i];
+                addTweet(tweet, "timeline");
+                i += 1;
+            }
+        }
+    }
+*/
+});
+
 
 // Show the user new tweets
 

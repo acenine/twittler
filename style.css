@@ -1,19 +1,97 @@
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	color: #555;
+	padding: 20px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+section, aside, header{
+	border: 5px;
+	border-style: solid;
+	border-color: blue;
+	border-radius: 9px;
+	padding: 0;
+	margin-top: 20px;
+	background: #e1e1e1;
+	width: 48%;
+
+}
+aside {
+	float: right;
+}
+section {
+	float: left;
+}
+header {
+	width:100%;
+	margin-top: 0;
+	padding: 20px;
+}
+h3 {
+	color: #555;
+	margin: 20px;
+	font-size: 20px
+
+}
 .tweetBox {
 	border: 2px;
 	border-style: solid;
-	border-color: blue;
+	border-color: #001efe;
 	border-radius: 5px;
-	background-color: #ccc;
-	margin: 5px;
+	background-color: #b7b7b7;
+	margin: 5px 20px 5px 20px;
 	color: #00a;
 	list-style-type: none;
-}
-.tweets {
-	border: 5px;
-	border-style: solid;
-	border-color: green;
-	margin: 10px;
-
+	padding: 10px;
 }
 .tweetInput {
 	display:none;
@@ -21,12 +99,17 @@
 .timestamp {
 	font-size: 9pt;
 	font-style: italic;
+	margin-top: 10px
 }
 .feed {
 	float: left;
-	width: 55%;
+
 }
-aside {
-	float: right;
-	width: 40%;
+.timeline {
+	display: none;
+}
+.username {
+	font: Garamond;
+	color: blue;
+	font-style: none;
 }
