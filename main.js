@@ -11,7 +11,7 @@ $(document).ready(function(){
     }
 
 /*
-    var streamSpeed = setInterval(streamFeed, 10000);
+    var streamSpeed = setInterval(streamFeed, 1500);
 
     function streamFeed() {
         var numPosted = $('.feed>.tweetBox').length;
@@ -58,17 +58,21 @@ $(document).ready(function(){
 // username is clicked
 // display the timeline aside
 // username tweets are shown earliest at top
+$("#hideTimeline").click(function(){
+        $(".timeline").hide();
+        $('.timeline>ul').children().remove();
+});
 
-$(".username").on("click", function(){
-    $('.timeline>ul').children().remove();
-    $('.timeline').toggle();
-    $('.timeline>ul').children().remove();
+$(".username").click(function(){
+    $('.timeline ul').children().remove();
+    $('.timeline').show();
     var user = $(this).text();
-    $('.timeline>h3').text('').append(user).append("'s timeline:");
+    $('.timeline h3').text('').append(user).append("'s timeline:");
     var userTweets = streams.users[user];
     for (var i = 0; i < userTweets.length; i++) {
         addTweet(userTweets[i], "timeline");
     }
+
 /*
     var stream = setInterval(streamTimeline, 5000);
 
