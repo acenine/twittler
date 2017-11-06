@@ -76,6 +76,16 @@ $(document).ready(function(){
             addTweet(userTweets[i], "timeline");
         }
     });
+
+    $(document).on('submit', '.login', function() {
+        var user = $("#username").val();
+        /* Act on the event */
+        $(".login").hide();
+        var $welcome = $("<h3 class='welcome'></h3>");
+        $welcome.text("Welcome ").append(user).append("! Add new twit below: ");
+        $("header").prepend($welcome);
+        $('.tweetInput').show();
+    });
 /*
     function addToTimeline(tweet) {
         var $tweetBox = makeTweetBox(tweet);
