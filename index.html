@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Twittler</title>
+    <link rel="stylesheet" href="normalize.css"/>
     <link rel="stylesheet" href="style.css"/>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
@@ -16,7 +17,7 @@
         </form>
       </div>
       <div class='login input'>
-        <form id='login' action=''>Enter username: 
+        <form id='login' action=''>Enter username to send a twit: 
           <input type="text" id="username">
         </form>
       </div>
@@ -25,11 +26,8 @@
     <section class='feed'>
       <h3>Twits happen:</h3>
       <ul class='tweets incoming'>
-        
       </ul>
-    </section><!--
-
-    --><aside class='timeline'>
+    </section><aside class='timeline'>
       <h3></h3>
       <button id="hideTimeline">Hide</button>
       <ul></ul>

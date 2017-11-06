@@ -1,14 +1,31 @@
 
 
 $(document).ready(function(){
+    stream()
+    function stream(){
+        setInterval(function(){
+            var index = 0;
+            while(index < streams.home.length){
+          
+                var tweet = streams.home[index];
+                addTweet(tweet, 'feed');
+                index += 1;
+            }
+        }, 1000);
+    }
 
-    var index = 0;
+    $('.feed .refresh').click(function(){
+        stream();
+    //var here = $(this).parent().attr('class');
+   /* var index = 0;
     while(index < streams.home.length){
           
         var tweet = streams.home[index];
         addTweet(tweet, 'feed');
         index += 1;
-    }
+    }*/
+    });
+
 
 /*
     var streamSpeed = setInterval(streamFeed, 1500);
@@ -47,6 +64,18 @@ $(document).ready(function(){
 
         $('.' + whereTo + '>ul').prepend(makeTweetBox(tweet));
     }
+
+    $(document).on('click', '.username', function () {
+        //e.preventDefault();
+        $('.timeline ul').children().remove();
+        $('.timeline').show();
+        var user = $(this).text();
+        $('.timeline h3').text('').append(user).append("'s timeline:");
+        var userTweets = streams.users[user];
+        for (var i = 0; i < userTweets.length; i++) {
+            addTweet(userTweets[i], "timeline");
+        }
+    });
 /*
     function addToTimeline(tweet) {
         var $tweetBox = makeTweetBox(tweet);
@@ -58,12 +87,13 @@ $(document).ready(function(){
 // username is clicked
 // display the timeline aside
 // username tweets are shown earliest at top
-$("#hideTimeline").click(function(){
+    $("#hideTimeline").click(function(){
         $(".timeline").hide();
         $('.timeline>ul').children().remove();
-});
-
+    });
+/*
 $(".username").click(function(){
+    alert("clicked!");
     $('.timeline ul').children().remove();
     $('.timeline').show();
     var user = $(this).text();
@@ -73,7 +103,7 @@ $(".username").click(function(){
         addTweet(userTweets[i], "timeline");
     }
 
-/*
+    /*
     var stream = setInterval(streamTimeline, 5000);
 
     function streamTimeline() {
@@ -87,7 +117,7 @@ $(".username").click(function(){
             }
         }
     }
-*/
+    */
 });
 
 
@@ -155,4 +185,4 @@ $(".username").click(function(){
 
 
 
-      });
+     // });
