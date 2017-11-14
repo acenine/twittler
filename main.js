@@ -12,7 +12,7 @@ $(document).ready(function(){
                 index += 1;
             }
         }, 1000);
-    }
+    };
 
     $('.feed .refresh').click(function(){
         stream();
@@ -26,7 +26,7 @@ $(document).ready(function(){
     }*/
     });
 
-    var visitor;
+    window.visitor;
 /*
     var streamSpeed = setInterval(streamFeed, 1500);
 
@@ -58,12 +58,12 @@ $(document).ready(function(){
         //$('.feed>.incoming').find("h3").after($tweetBox);
 
     
-    }
+    };
 
     function addToFeed(tweet, whereTo) {
 
         $('.' + whereTo + '>ul').prepend(makeTweetBox(tweet));
-    }
+    };
 
     $(document).on('click', '.username', function (event) { //shows timeline when you click on the username
         event.preventDefault();
@@ -73,14 +73,14 @@ $(document).ready(function(){
         $('.timeline h3').text('').append(user).append("'s timeline:");
         var userTweets = streams.users[user];
         for (var i = 0; i < userTweets.length; i++) {
-            addTweet(userTweets[i], "timeline");
+            addToFeed(userTweets[i], "timeline");
         }
     });
 
     $('#login').submit(function(event) { //when you enter your username you can send tweets as that user
         event.preventDefault();
-        var user = $("#username").val();
-        visitor = user;
+        user = $("#username").val();
+        addUser(user);
         var $welcome = $("<h3 class='welcome'></h3>");
         $welcome.text("Welcome ").append(user).append("! Add new twit below: ");
         $("header").prepend($welcome);
@@ -96,17 +96,41 @@ $(document).ready(function(){
         $('#login').show();
         $(this).hide();
     });
-    visitor = user;
-    $('#submitTweet').click(function(event){
+
+    $('#tweetInput').submit(function(event){
         event.preventDefault();
-        var message = $('.myTweet').val();
-        alert(message);
-        //writeTweet(message);
-    })
+        var message = $(this).find('.myTweet').val();
+        writeTweet(message);
+    });
+    function addUser(username) {
+        visitor = username; 
+        if (!userInDatabase(username)) {
+            streams.users[username] = [];
+        }
+    }
+    function userInDatabase(username) {
+        if (users.includes(username)) {
+            return true;
+        }
+        return false;
+    };
+/*
+    var writeTweet = function(message){
+        var tweet = {};
+        tweet.user = visitor;
+        tweet.message = message;
+        tweet.created_at = new Date();
+        streams.home.push(tweet);
 
+    };
 
-
-
+var addTweet = function(newTweet){
+  var username = newTweet.user;
+  streams.users[username].push(newTweet);
+  streams.home.push(newTweet);
+ 
+};
+ */
 /*
     function addToTimeline(tweet) { 
         var $tweetBox = makeTweetBox(tweet);

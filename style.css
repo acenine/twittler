@@ -62,14 +62,15 @@ section, aside, header{
 	margin-top: 20px;
 	background: #e1e1e1;
 	display: block;
-	clear:none;
 	width: 50%;
 }
 header {
 	float: top;
 	margin-right: 20px;
 	padding: 20px;
-	max-width: 1000px;
+	width: 100%;
+    margin: 3px -1px;
+    padding: 0;
 	overflow: auto;
 }
 aside {
@@ -78,6 +79,7 @@ aside {
 }
 section {
 	float: left;
+	margin-left: 10px
 }
 h3 {
 	color: #555;
@@ -130,7 +132,7 @@ button, #submitTweet{
 	float: right;
 	width: 40%;
 	position: absolute;
-	right: 0px;
+	right: 25px;
 }
 a {
 	font: Helvetica;
@@ -150,4 +152,7 @@ a {
 	vertical-align: center;
 	margin-right: 20px;
 	overflow:auto;
+}
+.input {
+	margin: 20px;
 }
