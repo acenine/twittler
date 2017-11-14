@@ -9,16 +9,17 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <header id='userInput'>
-      <div class='tweetInput input'>
-        <form id="tweetInput">
-          <textarea class="myTweet" rows="10" cols="50"></textarea>
-          <input type="submit" value="Send Tweet">
-        </form>
-      </div>
+    <header class='userInput'>
       <div class='login input'>
         <form id='login' action=''>Enter username to send a twit: 
           <input type="text" id="username" name='loginName'>
+        </form>
+        <a href='#' id='logout'>Log Out</a>
+      </div>
+      <div class='tweetInput input'>
+        <form id="tweetInput">
+          <textarea class="myTweet" rows="4" cols="60"></textarea>
+          <input type="submit" id="submitTweet" value="Send Tweet">
         </form>
       </div>
     </header>

@@ -62,12 +62,15 @@ section, aside, header{
 	margin-top: 20px;
 	background: #e1e1e1;
 	display: block;
+	clear:none;
+	width: 50%;
 }
 header {
 	float: top;
-	width: 100%;
 	margin-right: 20px;
 	padding: 20px;
+	max-width: 1000px;
+	overflow: auto;
 }
 aside {
 	float: right;
@@ -81,7 +84,13 @@ h3 {
 	margin: 20px;
 	font-size: 20px
 }
-button { 
+input, textarea {
+	border: 2px;
+	border-style: solid;
+	border-color: #001efe;
+	border-radius: 5px;
+}
+button, #submitTweet{ 
 	border: 2px;
 	border-style: solid;
 	border-color: #001efe;
@@ -93,7 +102,7 @@ button {
 	padding: 5px;
 	box-shadow: 1.5px 2px 1px 0px rgba(0, 0, 0, 0.2);
 }
-.tweetBox {
+.tweetBox{
 	border: 2px;
 	border-style: solid;
 	border-color: #001efe;
@@ -103,8 +112,9 @@ button {
 	color: #00a;
 	padding: 10px;
 }
-.tweetInput {
+.tweetInput, #logout {
 	display: none;
+	margin-left: 50px;
 }
 .timestamp {
 	font-size: 9pt;
@@ -113,7 +123,6 @@ button {
 }
 .feed {
 	float: left;
-	width: 55%;
 
 }
 .timeline {
@@ -123,7 +132,7 @@ button {
 	position: absolute;
 	right: 0px;
 }
-.username {
+a {
 	font: Helvetica;
 	color: blue;
 	font-style: none;
@@ -132,4 +141,13 @@ button {
 	position: absolute;
   	right: 10px;
   	top: 10px;
+}
+.hide{
+	display:none;
+}
+.login {
+	float: right;
+	vertical-align: center;
+	margin-right: 20px;
+	overflow:auto;
 }

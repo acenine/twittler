@@ -8,7 +8,7 @@ $(document).ready(function(){
             while(index < streams.home.length){
           
                 var tweet = streams.home[index];
-                addTweet(tweet, 'feed');
+                addToFeed(tweet, 'feed');
                 index += 1;
             }
         }, 1000);
@@ -26,7 +26,7 @@ $(document).ready(function(){
     }*/
     });
 
-
+    var visitor;
 /*
     var streamSpeed = setInterval(streamFeed, 1500);
 
@@ -60,13 +60,13 @@ $(document).ready(function(){
     
     }
 
-    function addTweet(tweet, whereTo) {
+    function addToFeed(tweet, whereTo) {
 
         $('.' + whereTo + '>ul').prepend(makeTweetBox(tweet));
     }
 
-    $(document).on('click', '.username', function () {
-        //e.preventDefault();
+    $(document).on('click', '.username', function (event) { //shows timeline when you click on the username
+        event.preventDefault();
         $('.timeline ul').children().remove();
         $('.timeline').show();
         var user = $(this).text();
@@ -77,57 +77,49 @@ $(document).ready(function(){
         }
     });
 
-    $(document).on('submit', '.login', function() {
+    $('#login').submit(function(event) { //when you enter your username you can send tweets as that user
+        event.preventDefault();
         var user = $("#username").val();
-        /* Act on the event */
-        $(".login").hide();
+        visitor = user;
         var $welcome = $("<h3 class='welcome'></h3>");
         $welcome.text("Welcome ").append(user).append("! Add new twit below: ");
         $("header").prepend($welcome);
+        $(this).hide();
         $('.tweetInput').show();
+        $('#logout').show();
     });
+
+    $('#logout').click(function(event) { // add logout button functionality
+        event.preventDefault();
+        $('.welcome').remove();
+        $('.tweetInput').hide();
+        $('#login').show();
+        $(this).hide();
+    });
+    visitor = user;
+    $('#submitTweet').click(function(event){
+        event.preventDefault();
+        var message = $('.myTweet').val();
+        alert(message);
+        //writeTweet(message);
+    })
+
+
+
+
 /*
-    function addToTimeline(tweet) {
+    function addToTimeline(tweet) { 
         var $tweetBox = makeTweetBox(tweet);
         $('.timeline>ul').prepend(makeTweetBox(tweet));
 
     }
 */
 
-// username is clicked
-// display the timeline aside
-// username tweets are shown earliest at top
+
     $("#hideTimeline").click(function(){
         $(".timeline").hide();
         $('.timeline>ul').children().remove();
     });
-/*
-$(".username").click(function(){
-    alert("clicked!");
-    $('.timeline ul').children().remove();
-    $('.timeline').show();
-    var user = $(this).text();
-    $('.timeline h3').text('').append(user).append("'s timeline:");
-    var userTweets = streams.users[user];
-    for (var i = 0; i < userTweets.length; i++) {
-        addTweet(userTweets[i], "timeline");
-    }
-
-    /*
-    var stream = setInterval(streamTimeline, 5000);
-
-    function streamTimeline() {
-        var numPosted = $('.timeline>.tweetBox').length;
-        if (numPosted < userTweets.length) {
-            var i = numPosted;
-            while (i < userTweets.length) {
-                var tweet = userTweets[i];
-                addTweet(tweet, "timeline");
-                i += 1;
-            }
-        }
-    }
-    */
 });
 
 
@@ -142,7 +134,9 @@ $(".username").click(function(){
 
 // Allow the user to click on a username to see that user's timeline.
 
-
+// username is clicked
+// display the timeline aside
+// username tweets are shown earliest at top
 
 
 
