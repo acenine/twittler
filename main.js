@@ -13,9 +13,10 @@ $(document).ready(function(){
             }
         }, 1000);
     };
-
+/*
     $('.feed .refresh').click(function(){
         stream();
+*/
     //var here = $(this).parent().attr('class');
    /* var index = 0;
     while(index < streams.home.length){
@@ -24,7 +25,6 @@ $(document).ready(function(){
         addTweet(tweet, 'feed');
         index += 1;
     }*/
-    });
 
     window.visitor;
 /*
